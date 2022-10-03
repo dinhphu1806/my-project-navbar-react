@@ -1,25 +1,61 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+
 import './App.css';
 
-function App() {
+const menuItems = [
+  {
+    "title": "Home",
+    "url": "#",
+    "cName": "nav-link"
+  },
+  {
+    "title": "About",
+    "url": "#",
+    "cName": "nav-link"
+  },
+  {
+    "title": "Services",
+    "url": "#",
+    "cName": "nav-link"
+  },
+  {
+    "title": "Contact",
+    "url": "#",
+    "cName": "nav-link"
+  },
+  {
+    "title": "Blog",
+    "url": "#",
+    "cName": "nav-link"
+  },
+]
+
+function App(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+     <nav className='nav'>
+     
+        <h1 className='logo'>
+           "Logo"
+        </h1>
+        
+        <ul className='nav-menu' >
+          {menuItems.map((item, index) => {
+            return(
+                  <li key={index}>
+                      <a className={item.cName} href={item.url}>
+                      {item.title}
+                      </a>
+                      
+                  </li>
+            )
+          })}
+          </ul>
+        <div className='sign-in'>
+            <a className='login' id='btn' href='#'>Login</a>
+        </div>
+     </nav>
+  )
 }
 
+  
 export default App;
